@@ -103,6 +103,7 @@ public class ClienteFTP {
                             if (f.exists()) {
                                 FileInputStream fis = new FileInputStream(archivo);
                                 cliente.storeFile(archivo, fis);
+                                fis.close();
                             } else {
                                 System.out.println("El archivo indicado no existe actualmente");
                             }
