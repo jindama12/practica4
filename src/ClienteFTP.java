@@ -75,21 +75,22 @@ public class ClienteFTP {
                         System.out.print("¿Qué fichero quieres descargar?: ");
                         String fichero = sc.nextLine();
 
-                        File busqueda = null;
+                        String busqueda = null;
 
                         boolean existeArchivo = false;
                         for (FTPFile archivo : archivos) {
                             if (archivo.getName().equals(fichero)) {
                                 existeArchivo = true;
-                                busqueda = new File(archivo.getName());
+                                busqueda = archivo.getName();
                             }
                         }
 
                         if (!existeArchivo) {
                             System.out.println("El archivo indicado no existe");
                         } else {
-                            OutputStream os = new BufferedOutputStream(new FileOutputStream(busqueda));
+                            OutputStream os = new BufferedOutputStream(new FileOutputStream(new File("prueba.txt")));
                             cliente.retrieveFile(fichero, os);
+                            os.close();
                         }
                         break;
                     case 3:
