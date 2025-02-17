@@ -48,11 +48,13 @@ public class ClienteFTP {
             int seleccion;
 
             do {
-                FTPFile[] archivos = cliente.listFiles();
+                FTPFile[] archivos = null;
 
                 if (identificado) {
+                    archivos = cliente.listFiles("/srv/ftp");
                     menuUsuario();
                 } else {
+                    archivos = cliente.listFiles();
                     menuAnonymous();
                 }
                 seleccion = sc.nextInt();
@@ -60,7 +62,6 @@ public class ClienteFTP {
 
                 switch (seleccion) {
                     case 1:
-
                         if (archivos.length == 0) {
                             System.out.println("El directorio está vacío");
                         } else {
@@ -102,7 +103,7 @@ public class ClienteFTP {
 
                             if (f.exists()) {
                                 FileInputStream fis = new FileInputStream(archivo);
-                                cliente.storeFile(archivo, fis);
+                                cliente.storeFile("/srv/ftp/" + archivo, fis);
                                 fis.close();
                             } else {
                                 System.out.println("El archivo indicado no existe actualmente");
