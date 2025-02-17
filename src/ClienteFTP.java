@@ -88,8 +88,8 @@ public class ClienteFTP {
                         if (!existeArchivo) {
                             System.out.println("El archivo indicado no existe");
                         } else {
-                            OutputStream os = new BufferedOutputStream(new FileOutputStream(new File("prueba.txt")));
-                            cliente.retrieveFile(fichero, os);
+                            OutputStream os = new BufferedOutputStream(new FileOutputStream(new File(fichero)));
+                            cliente.retrieveFile("/srv/ftp/" + fichero, os);
                             os.close();
                         }
                         break;
