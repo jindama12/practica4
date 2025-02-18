@@ -1,3 +1,5 @@
+package srvFtpCliente;
+
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPReply;
@@ -10,8 +12,7 @@ public class ClienteFTP {
         Scanner sc = new Scanner(System.in);
 
         FTPClient cliente = new FTPClient();
-        String serverFTP = "192.168.146.173";
-
+        String serverFTP = "192.168.1.136";
         System.out.print("Nombre de usuario: ");
         String usuario = sc.nextLine();
 
