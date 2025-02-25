@@ -49,7 +49,7 @@ public class ClienteFTP {
             int seleccion;
 
             do {
-                FTPFile[] archivos = archivos = cliente.listFiles();
+                FTPFile[] archivos = cliente.listFiles();
 
                 if (identificado) {
                     menuUsuario();
